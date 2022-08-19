@@ -1,5 +1,6 @@
 name: Test action
 on:
+  workflow_call:
   push:
 jobs:
   test-job:
