@@ -10,7 +10,7 @@ jobs:
     needs: test-job
 #    if: needs.test-job.outputs.last-test-status == 'true'
     steps:
-      - run: echo ${{ needs.test-job.outputs.last-test-status }}
+      - run: echo ${{ needs.test-job.outputs.is-test-passed }}
       - uses: actions/checkout@v2
 
 #      - name: Install jq

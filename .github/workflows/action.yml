@@ -4,17 +4,19 @@ on:
     outputs:
       last-test-status:
         description: "The status of last test"
-        value: ${{ jobs.test-job.outputs.test-status-react }}
+        value: ${{ jobs.test-job.outputs.is-test-passed }}
 #  push:
 jobs:
   test-job:
     runs-on: ubuntu-latest
     outputs:
-      test-status-react: ${{ 'steps.test-react.outputs.triggered' }}
+      is-test-passed: ${{ steps.test-react.outputs.is-test-passed }}
     steps:
     - uses: actions/checkout@v2
-      id: test-react
-#      run: echo "::set-output name=triggered::true"
+
+    - id: test-react
+      run: echo "::set-output name=is-test-passed::true"
+
 #
 #    - uses: actions/setup-node@v1
 #      name: 'setup node'
