@@ -24,8 +24,8 @@ jobs:
 #        run: |
 #          echo $RELEASE_VERSION
 #          echo ${{ env.RELEASE_VERSION }}
-#      - name: Install jq
-#        run: sudo apt-get install -y jq
+      - name: Install jq
+        run: sudo apt-get install -y jq
 #
 #      - name: Build docker
 #        run: docker build . --file Dockerfile --tag $RELEASE_VERSION
