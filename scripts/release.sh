@@ -7,7 +7,7 @@ DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%
 TAGS_LAST=$(git describe --tags --abbrev=0 --match "v_*")
 
 if $(git describe --tags --abbrev=0 "${TAGS_LAST}"^ --match "v_*"); then
-	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}"^ --match "v_*")
+	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${TAGS_LAST}"^ --match "v_*")
 	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${v_0.0.32}"..."${v_0.0.41}")
 else
     	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${TAGS_LAST}")
