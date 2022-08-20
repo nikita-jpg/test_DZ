@@ -27,7 +27,6 @@ jobs:
 
     - name: 'test ts'
       run: npm run ts
-
     - name: 'test react'
       run: npm run test
 
