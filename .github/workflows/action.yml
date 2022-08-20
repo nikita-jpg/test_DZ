@@ -1,12 +1,14 @@
 name: Test action
 on:
   workflow_call:
+    outputs:
+      output1:
+        description: "The first output string"
+        value: ${{ 'Hello world' }}
 #  push:
 jobs:
   test-job:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ 'Hello world' }}
     steps:
     - uses: actions/checkout@v2
 
