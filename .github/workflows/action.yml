@@ -1,25 +1,26 @@
 name: Test action
-on:
-  workflow_call:
+#on:
+#  workflow_call:
 #  push:
-jobs:
-  test-job:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      name: 'setup node'
-      with:
-        node-version: '16.16.0'
+#jobs:
+#  test-job:
+#    runs-on: ubuntu-latest
+runs:
+  using: 'composite'
+  steps:
+  - uses: actions/setup-node@v1
+    name: 'setup node'
+    with:
+      node-version: '16.16.0'
 
-    - name: 'install'
-      run: npm i
+  - name: 'install'
+    run: npm i
 
-    - name: 'test lint'
-      run: npm run lint
+  - name: 'test lint'
+    run: npm run lint
 
-    - name: 'test ts'
-      run: npm run ts
+  - name: 'test ts'
+    run: npm run ts
 
-    - name: 'test react'
-      run: npm run test
+  - name: 'test react'
+    run: npm run test
