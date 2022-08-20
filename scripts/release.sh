@@ -11,7 +11,7 @@ COMMITS="Bad request"
 if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")" --quiet; then
 	echo "i am in if"
 	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")
-	COMMITS=$(git log --pretty=format:"%H %an %s" "v_0.0.52"..."${RELEASE_VERSION}")
+	COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.70"..."${RELEASE_VERSION}")
 else
   	echo "i am in else"
     	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
@@ -25,7 +25,7 @@ echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 #echo "$(git log --pretty=format:"%H %an %s%n" "rc-0.0.1")"
 
 SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
-DESCRIPTION="Ответственный за релиз ${AUTHOR}Коммиты, попавшие в релиз: ${COMMITS}"
+DESCRIPTION="Ответственный за релиз ${AUTHOR}\n\nКоммиты, попавшие в релиз:\n ${COMMITS}"
 
 
 
