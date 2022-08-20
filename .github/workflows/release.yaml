@@ -10,7 +10,7 @@ jobs:
     needs: test-job
     if: true == true
     steps:
-      - run: echo ${{'Hello world'}}
+      - run: echo ${{ needs.test-job.outputs }}
       - uses: actions/checkout@v2
 
 #      - name: Install jq
