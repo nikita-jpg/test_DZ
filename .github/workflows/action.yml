@@ -14,6 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       id: test-react
+      run: echo "::set-output name=triggered::true"
 #
 #    - uses: actions/setup-node@v1
 #      name: 'setup node'
