@@ -4,13 +4,13 @@ on:
     outputs:
       last-test-status:
         description: "The status of last test"
-        value: ${{ 'true' }}
+        value: ${{ jobs.test-job.outputs.test-status-react }}
 #  push:
 jobs:
   test-job:
     runs-on: ubuntu-latest
     outputs:
-      test-status-react: ${{ steps.test-react.output.triggered }}
+      test-status-react: ${{ 'true'}}
     steps:
     - uses: actions/checkout@v2
       id: test-react
