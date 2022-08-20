@@ -16,6 +16,7 @@ else
     	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
 fi
 
+COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.52"..."${RELEASE_VERSION}")
 echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 echo "COMMITS: ${COMMITS}"
 
