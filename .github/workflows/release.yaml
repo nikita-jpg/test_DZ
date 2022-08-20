@@ -1,8 +1,8 @@
 name: Release action
 on:
   push:
-    tags:
-      - 'rc-*.*.*'
+#    tags:
+#      - 'rc-*.*.*'
 jobs:
 #  test-job:
 #    uses: ./.github/workflows/action.yml
