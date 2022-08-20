@@ -8,7 +8,7 @@ jobs:
   make-release-ticket-tandex:
     runs-on: ubuntu-latest
     needs: test-job
-#    if: needs.test-job.outputs.last-test-status == 'true'
+    if: needs.test-job.outputs.last-test-status == 'true'
     steps:
       - run: echo ${{ needs.test-job.outputs.last-test-status }}
       - uses: actions/checkout@v2
