@@ -4,3 +4,9 @@ on:
 jobs:
   call-workflow-test-in-local-repo:
     uses: ./.github/workflows/test.yml
+
+  make-release-ticket-tandex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make release ticket yandex
+        run: sh ./scripts/release.sh
