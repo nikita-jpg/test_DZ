@@ -41,7 +41,7 @@ HEADER_ORG_ID="X-Org-ID: ${ORG_ID}"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'"${DESCRIPTION}"'"
+    "description": "Тестовое описание"
 }'
 echo "Request: ${REQUEST}"
 
