@@ -10,7 +10,7 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     outputs:
-      test-status-react: ${{ 'true' }}
+      test-status-react: ${{ steps.test-react.output.triggered }}
     steps:
     - uses: actions/checkout@v2
       id: test-react
