@@ -25,7 +25,7 @@ echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 #echo "$(git log --pretty=format:"%H %an %s%n" "rc-0.0.1")"
 
 SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
-DESCRIPTION="Ответственный за релиз ${AUTHOR}\n\nКоммиты, попавшие в релиз:\n ${COMMITS}"
+DESCRIPTION="Ответственный за релиз ${AUTHOR}Коммиты, попавшие в релиз: ${COMMITS}"
 
 
 
