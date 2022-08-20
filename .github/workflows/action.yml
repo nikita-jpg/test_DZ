@@ -5,6 +5,8 @@ on:
 jobs:
   test-job:
     runs-on: ubuntu-latest
+    outputs:
+      test-status: ${{ steps.test-react.outputs.triggered }}
     steps:
     - uses: actions/checkout@v2
 
@@ -23,4 +25,5 @@ jobs:
       run: npm run ts
 
     - name: 'test react'
+      id: test-react
       run: npm run test

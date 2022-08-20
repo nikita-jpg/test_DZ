@@ -2,11 +2,13 @@ name: Release action
 on:
   push:
 jobs:
-#  call-workflow-test-in-local-repo:
-#    uses: ./.github/workflows/action.yml
+  test-job:
+    uses: ./.github/workflows/action.yml
 
   make-release-ticket-tandex:
     runs-on: ubuntu-latest
+    needs: [test-job]
+    if: needs.test-job.outputs.test-status == 'true'
     steps:
       - uses: actions/checkout@v2
 
