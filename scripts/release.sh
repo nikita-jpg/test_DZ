@@ -8,14 +8,12 @@
 #echo "Previous version: ${PREVIOUS_VERSION}"
 #
 AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
-DATE=$(git show "${RELEASE_VERSION}" --pretty=format:"%cr" --no-patch)
+DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
 #echo "${AUTHOR}: ${DATE}"
 #
 #CHANGELOG=$(git log "$PREVIOUS_VERSION".. --pretty=format:"%s | %an, %ad" --date=short)
-SUMMARY="Релиз  №${RELEASE_VERSION} от ${DATE}"
-DESCRIPTION="Ответственный за релиз ${AUTHOR} \n
-Коммиты, попавшие в релиз:
-"
+SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
+DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:"
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
 CREATE_TASK_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46"
