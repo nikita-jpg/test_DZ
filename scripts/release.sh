@@ -8,7 +8,7 @@
 #echo "Previous version: ${PREVIOUS_VERSION}"
 #
 AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
-DATE=$(git show "${RELEASE_VERSION}" --pretty=format:"%cr" --no-patch)
+DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
 #echo "${AUTHOR}: ${DATE}"
 #
 #CHANGELOG=$(git log "$PREVIOUS_VERSION".. --pretty=format:"%s | %an, %ad" --date=short)
@@ -28,7 +28,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "Новое описание задачи 2"
+    "description": "'"${DESCRIPTION}"'"
 }'
 echo "Request: ${REQUEST}"
 
