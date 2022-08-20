@@ -26,7 +26,6 @@ jobs:
 #
 #      - name: Build docker
 #        run: docker build . --file Dockerfile --tag $RELEASE_VERSION
-
       - name: Make release ticket yandex
         run: sh ./scripts/release.sh
         env:
