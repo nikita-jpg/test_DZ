@@ -1,0 +1,6 @@
+name: Release action
+on:
+  push:
+jobs:
+  call-workflow-test-in-local-repo:
+    uses: ./.github/workflows/test.yml

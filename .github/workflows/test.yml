@@ -1,7 +1,7 @@
 name: Test action
 on:
   workflow_call:
-  push:
+#  push:
 jobs:
   test-job:
     runs-on: ubuntu-latest
