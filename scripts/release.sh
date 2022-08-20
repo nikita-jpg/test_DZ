@@ -24,6 +24,7 @@ echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.40"..."v_0.0.41^")
 #echo "$(git log --pretty=format:"%H %an %s%n" "rc-0.0.1")"
 
+COMMITS="fbeufnerivnreiugv"
 SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
 DESCRIPTION="Ответственный за релиз ${AUTHOR}Коммиты, попавшие в релиз: ${COMMITS}"
 
