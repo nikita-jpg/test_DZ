@@ -25,17 +25,15 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "summary": "'"${SUMMARY}"'",
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
-    "summary": "Новое название задачи",
-    "description": "Новое описание задачи"
+    "summary": "Новое название задачи 2",
+    "description": "Новое описание задачи 2"
 }'
 echo "Request: ${REQUEST}"
 
 RESPONSE=$(
   curl -so dev/null -w '%{http_code}' -X PATCH ${CREATE_TASK_URL} \
-  --header "${HEADER_HOST}" \
   --header "${HEADER_OAUTH}" \
   --header "${HEADER_ORG_ID}" \
-  --header "${HEADER_CONTENT_TYPE}" \
   --data "${REQUEST}"
 )
 echo "Response: ${RESPONSE}."
