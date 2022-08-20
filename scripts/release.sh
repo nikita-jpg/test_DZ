@@ -16,7 +16,7 @@ else
     	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION_MOCK}")
 fi
 
-echo "${COMMITS}"
+echo "COMMITS: ${COMMITS}"
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.40"..."v_0.0.41^")
 #echo "$(git log --pretty=format:"%H %an %s%n" "rc-0.0.1")"
