@@ -29,3 +29,6 @@ jobs:
 
       - name: Make release ticket yandex
         run: sh ./scripts/release.sh
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ORG_ID: ${{ secrets.ORG_ID }}
