@@ -10,11 +10,10 @@ jobs:
     needs: test-job
     if: needs.test-job.outputs.is-test-passed == 'true'
     steps:
-#      - run: echo ${{ needs.test-job.outputs.is-test-passed }}
       - uses: actions/checkout@v2
 
-#      - name: Install jq
-#        run: sudo apt-get install -y jq
-#
-#      - name: Make release ticket yandex
-#        run: sh ./scripts/release.sh
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Make release ticket yandex
+        run: sh ./scripts/release.sh
