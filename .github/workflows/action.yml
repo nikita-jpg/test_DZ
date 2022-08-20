@@ -14,23 +14,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - uses: actions/setup-node@v1
+      name: 'setup node'
+      with:
+        node-version: '16.16.0'
+
+    - name: 'install'
+      run: npm i
+
+    - name: 'test lint'
+      run: npm run lint
+
+    - name: 'test ts'
+      run: npm run ts
+
+    - name: 'test react'
+      run: npm run test
+
     - id: test-react
       run: echo "::set-output name=is-test-passed::true"
-
-#
-#    - uses: actions/setup-node@v1
-#      name: 'setup node'
-#      with:
-#        node-version: '16.16.0'
-#
-#    - name: 'install'
-#      run: npm i
-#
-#    - name: 'test lint'
-#      run: npm run lint
-#
-#    - name: 'test ts'
-#      run: npm run ts
-#
-#    - name: 'test react'
-#      run: npm run test
