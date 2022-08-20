@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+RELEASE_VERSION="v_0.0.53"
+
 AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
 DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
 
@@ -14,6 +16,7 @@ else
     	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
 fi
 
+echo "${COMMITS}"
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.40"..."v_0.0.41^")
 #echo "$(git log --pretty=format:"%H %an %s%n" "rc-0.0.1")"
