@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RELEASE_VERSION_MOCK="v_0.0.53"
+RELEASE_VERSION_MOCK="v_0.0.52"
 
 AUTHOR=$(git log "${RELEASE_VERSION_MOCK}" --pretty=format:"%an" --no-patch)
 DATE=$(git show "${RELEASE_VERSION_MOCK}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
