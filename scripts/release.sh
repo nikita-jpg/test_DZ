@@ -2,24 +2,24 @@
 
 #RELEASE_VERSION_MOCK="v_0.0.52"
 
+
 AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
 DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
 
 COMMITS="Bad request"
 
-if git show-ref --tags "$(git describe --tags --abbrev=0 v_0.0.52 --match="v_*")" --quiet; then
+if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")" --quiet; then
 	echo "i am in if"
-	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "v_0.0.52" --match="v_*")
-	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${TAGS_BEFORE_LAST}"..."${RELEASE_VERSION}")
+	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")
+	COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.52"..."${RELEASE_VERSION}")
 else
   	echo "i am in else"
     	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
 fi
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" v_0.0.52...${RELEASE_VERSION})
-COMMITS=$(git tag -l)
 echo "RELEASE_VERSION: ${RELEASE_VERSION}"
-echo "COMMITS: ${COMMITS}"
+#echo "COMMITS: ${COMMITS}"
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" "v_0.0.40"..."v_0.0.41^")
 #echo "$(git log --pretty=format:"%H %an %s%n" "rc-0.0.1")"
@@ -43,7 +43,7 @@ REQUEST='{
     "summary": "'"${SUMMARY}"'",
     "description": "'"${DESCRIPTION}"'"
 }'
-#echo "Request: ${REQUEST}"
+echo "Request: ${REQUEST}"
 
 RESPONSE=$(
   curl -so dev/null -w '%{http_code}' -X PATCH ${CREATE_TASK_URL} \
