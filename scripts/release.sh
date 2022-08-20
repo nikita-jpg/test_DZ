@@ -13,7 +13,14 @@ DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%
 #
 #CHANGELOG=$(git log "$PREVIOUS_VERSION".. --pretty=format:"%s | %an, %ad" --date=short)
 SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
-DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:"
+DESCRIPTION="Ответственный за релиз ${AUTHOR}\n\nКоммиты, попавшие в релиз:"
+TAGS=$(git tag -l "v*")
+
+if [ ${#TAGS[@]} -gt 2 ]; then
+  echo "$(git log --pretty=oneline ${TAGS[0]}...${TAGS[1]})"
+fi
+
+
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
 CREATE_TASK_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46"
