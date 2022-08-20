@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-RELEASE_VERSION="v_0.0.53"
+RELEASE_VERSION_MOCK="v_0.0.53"
 
-AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
-DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
+AUTHOR=$(git log "${RELEASE_VERSION_MOCK}" --pretty=format:"%an" --no-patch)
+DATE=$(git show "${RELEASE_VERSION_MOCK}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
 
 COMMITS="Bad request"
 
-if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")" --quiet; then
+if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION_MOCK}^" --match="v_*")" --quiet; then
 	echo "i am in if"
-	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")
-	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${TAGS_BEFORE_LAST}"..."${RELEASE_VERSION}")
+	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION_MOCK}^" --match="v_*")
+	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${TAGS_BEFORE_LAST}"..."${RELEASE_VERSION_MOCK}")
 else
   	echo "i am in else"
-    	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
+    	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION_MOCK}")
 fi
 
 echo "${COMMITS}"
