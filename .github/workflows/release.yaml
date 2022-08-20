@@ -14,7 +14,6 @@ jobs:
 #    if: needs.test-job.outputs.is-test-passed == 'true'
     steps:
       - uses: actions/checkout@v2
-
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
