@@ -10,7 +10,7 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     outputs:
-      is-test-passed: ${{ 'steps.test-react.outputs.is-test-passed' }}
+      is-test-passed: ${{ steps.test-react.outputs.is-test-passed }}
     steps:
     - uses: actions/checkout@v2
 
