@@ -19,19 +19,19 @@ CREATE_TASK_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46"
 UNIQUE_KEY="[wignorbo] release ${VERSION}"
 
 HEADER_OAUTH="Authorization: OAuth ${ACCESS_TOKEN}"
+HEADER_HOST="Host: https://api.tracker.yandex.net"
 HEADER_ORG_ID="X-Org-ID: ${ORG_ID}"
 HEADER_CONTENT_TYPE="Content-Type: application/json"
 
 REQUEST='{
   "summary": "'"${SUMMARY}"'",
-  "description": "'"${CHANGELOG}"'",
-  "queue": "TMP",
-  "unique": "'"${UNIQUE_KEY}"'"
+  "description": "'"${CHANGELOG}"'"
 }'
 echo "Request: ${REQUEST}"
 
 RESPONSE=$(
-  curl -so dev/null -w '%{http_code}' -X POST ${CREATE_TASK_URL} \
+  curl -so dev/null -w '%{http_code}' -X PATCH ${CREATE_TASK_URL} \
+  --header "${HEADER_HOST}" \
   --header "${HEADER_OAUTH}" \
   --header "${HEADER_ORG_ID}" \
   --header "${HEADER_CONTENT_TYPE}" \
