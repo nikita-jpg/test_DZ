@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Make release ticket yandex
-        run: sh ./scripts/release.sh
+        run: sh ../../scripts/release.sh
