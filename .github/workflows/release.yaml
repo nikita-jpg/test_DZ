@@ -10,12 +10,11 @@ jobs:
     needs: test-job
     if: true == true
     steps:
+      - run: echo ${{needs.test-job.outputs.test-status}}
       - uses: actions/checkout@v2
 
-      - uses: ./.github/workflows/action.yml
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
-      - name: Make release ticket yandex
-        run: sh ./scripts/release.sh
+#      - name: Install jq
+#        run: sudo apt-get install -y jq
+#
+#      - name: Make release ticket yandex
+#        run: sh ./scripts/release.sh
