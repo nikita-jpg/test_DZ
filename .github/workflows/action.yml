@@ -6,7 +6,7 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     outputs:
-      test-status: ${{ true }}
+      test-status: ${{ 'Hello world' }}
     steps:
     - uses: actions/checkout@v2
 
