@@ -7,12 +7,15 @@
 #echo "Current version: ${VERSION}"
 #echo "Previous version: ${PREVIOUS_VERSION}"
 #
-#AUTHOR=$(git show "${VERSION}" --pretty=format:"%an" --no-patch)
-#DATE=$(git show "${VERSION}" --pretty=format:"%ad" --no-patch)
+AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
+DATE=$(git show "${RELEASE_VERSION}" --pretty=format:"%cr" --no-patch)
 #echo "${AUTHOR}: ${DATE}"
 #
 #CHANGELOG=$(git log "$PREVIOUS_VERSION".. --pretty=format:"%s | %an, %ad" --date=short)
-#SUMMARY="${VERSION}: ${AUTHOR}, ${DATE}"
+SUMMARY="Релиз  №${RELEASE_VERSION} от ${DATE}"
+DESCRIPTION="Ответственный за релиз ${AUTHOR} \n
+Коммиты, попавшие в релиз:
+"
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
 CREATE_TASK_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46"
@@ -22,10 +25,9 @@ HEADER_OAUTH="Authorization: OAuth ${ACCESS_TOKEN}"
 HEADER_HOST="Host: https://api.tracker.yandex.net"
 HEADER_ORG_ID="X-Org-ID: ${ORG_ID}"
 HEADER_CONTENT_TYPE="Content-Type: application/json"
-#  "summary": "'"${SUMMARY}"'",
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
-    "summary": "Новое название задачи 2",
+    "summary": "'"${SUMMARY}"'",
     "description": "Новое описание задачи 2"
 }'
 echo "Request: ${REQUEST}"
