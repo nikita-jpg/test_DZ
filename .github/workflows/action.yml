@@ -2,7 +2,7 @@ name: Test action
 on:
   workflow_call:
     outputs:
-      last-test-status:
+      is-test-passed:
         description: "The status of last test"
         value: ${{ jobs.test-job.outputs.is-test-passed }}
 #  push:
