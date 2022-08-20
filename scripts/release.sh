@@ -7,9 +7,9 @@ DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%
 
 COMMITS="Bad request"
 
-if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")" --quiet; then
+if git show-ref --tags "$(git describe --tags --abbrev=0 "v_0.0.52" --match="v_*")" --quiet; then
 	echo "i am in if"
-	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")
+	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "v_0.0.52" --match="v_*")
 	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${TAGS_BEFORE_LAST}"..."${RELEASE_VERSION}")
 else
   	echo "i am in else"
