@@ -1,24 +1,21 @@
 #!/usr/bin/env bash
 
-#echo "${RELEASE_VERSION}"
 
-#VERSION=$(git tag --sort version:refname | tail -1 | head -1)
-#PREVIOUS_VERSION=$(git tag --sort version:refname | tail -2 | head -1)
-#echo "Current version: ${VERSION}"
-#echo "Previous version: ${PREVIOUS_VERSION}"
-#
 AUTHOR=$(git log "${RELEASE_VERSION}" --pretty=format:"%an" --no-patch)
 DATE=$(git show "${RELEASE_VERSION}" --date=format:'%Y-%m-%d' --pretty="format:%ad" --no-patch)
-#echo "${AUTHOR}: ${DATE}"
-#
-#CHANGELOG=$(git log "$PREVIOUS_VERSION".. --pretty=format:"%s | %an, %ad" --date=short)
-SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
-DESCRIPTION="Ответственный за релиз ${AUTHOR}\n\nКоммиты, попавшие в релиз:"
-TAGS=$(git tag -l "v*")
 
-if [ ${#TAGS[@]} -gt 2 ]; then
-  echo "$(git log --pretty=oneline ${TAGS[0]}...${TAGS[1]})"
+
+if $(git describe --tags --abbrev=0 "${RELEASE_VERSION}"^ --match "v_*"); then
+	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${TAGS_LAST}"^ --match "v_*")
+	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${TAGS_BEFORE_LAST}"...${RELEASE_VERSION})
+else
+    	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
 fi
+
+
+SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
+DESCRIPTION="Ответственный за релиз ${AUTHOR}\n\nКоммиты, попавшие в релиз:\n ${COMMITS}"
+
 
 
 #echo "\nChangelog:\n${CHANGELOG}\n"
