@@ -23,7 +23,7 @@ COMMITS=$(cat in.txt)
 echo "${COMMITS}"
 echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 
-SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
+SUMMARY="Релиз  №${RELEASE_VERSION#*-} от ${DATE}"
 DESCRIPTION="**Ответственный за релиз ${AUTHOR}**\n\nКоммиты, попавшие в релиз:\n ${COMMITS}"
 
 
