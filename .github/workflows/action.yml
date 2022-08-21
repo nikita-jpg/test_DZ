@@ -32,5 +32,8 @@ jobs:
       run: npm run test
 
     - name: 'test passed'
+      run: echo '===test passed==='
+
+    - name: 'test passed'
       id: test-react
       run: echo "::set-output name=is-test-passed::true"
