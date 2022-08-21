@@ -40,7 +40,7 @@ DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммит�
 #TEXT_B="${TEXT_A} \n 456"
 
 #echo "$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")" > in.txt
-COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")
+#COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")
 
 
 #NEW_COMMITS=${COMMITS//$'\n'/\\n}
@@ -63,7 +63,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'$COMMITS'"
+    "description": "'$DESCRIPTION'"
 }'
 echo "Request: ${REQUEST}"
 
