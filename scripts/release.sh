@@ -23,7 +23,7 @@ fi
 #
 echo "$COMMITS" > in.txt
 cat in.txt | tr -s '\r\n' ',' > out.txt
-tr  ',' '\n' < in.txt > out.txt
+#tr  ',' '\n' < in.txt > out.txt
 ##cat in.txt | tr -s 'sosk' ' ' > out.txt
 COMMITS=$(cat out.txt)
 
