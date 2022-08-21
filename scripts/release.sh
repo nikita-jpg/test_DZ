@@ -46,11 +46,12 @@ TEXT_B="${TEXT_A} \n 456"
 
 #echo "$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")" > in.txt
 COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")
-#cat in.txt | tr -s ',' '\n' > out.txt
+
 #TEXT_B=$(cat in.txt)
 echo "$COMMITS" > in.txt
+cat in.txt | tr -s '\r\n' ' ' > out.txt
 #cat in.txt | tr -s ',' 'df' > out.txt
-COMMITS=$(cat in.txt)
+COMMITS=$(cat out.txt)
 
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
