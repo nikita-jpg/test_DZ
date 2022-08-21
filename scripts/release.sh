@@ -55,7 +55,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": '${SUMMARY}")'
+    "description": '${SUMMARY}'
 }'
 echo "Request: ${REQUEST}"
 
