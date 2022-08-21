@@ -18,7 +18,7 @@ else
 fi
 
 echo ${COMMITS} > in.txt
-cat in.txt | tr -s '\r\n' '\n' > out.txt
+#cat in.txt | tr -s '\r\n' '\n' > out.txt
 COMMITS=$(cat out.txt)
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" v_0.0.52...${RELEASE_VERSION})
