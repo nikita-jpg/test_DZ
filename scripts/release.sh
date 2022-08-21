@@ -41,7 +41,7 @@ SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
 #DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:\n '${COMMITS}'"
 DESCRIPTION="${COMMITS}"
 
-TEXT="1\"2\"2"
+TEXT="12\\\"2"
 
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
