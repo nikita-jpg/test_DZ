@@ -5,8 +5,8 @@ on:
       - rc-*.*.*
 
 jobs:
-#  test-job:
-#    uses: ./.github/workflows/action.yml
+  test-job:
+    uses: ./.github/workflows/action.yml
 
   make-release-ticket-yandex:
     runs-on: ubuntu-latest
