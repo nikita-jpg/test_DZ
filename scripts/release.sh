@@ -51,8 +51,10 @@ COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}"
 NEW_COMMITS=${COMMITS//$'\n'/\\n}
 #TEXT_B=$(cat in.txt)
 echo "$COMMITS" > in.txt
-COMMITS="123"
-COMMITS=$(cat in.txt | tr -s '\n' '///\\n')
+perl -pi -e 's/\n/\\n/g' in.txt
+COMMITS=$(cat in.txt)
+#COMMITS="123"
+#COMMITS=$(cat in.txt | tr -s '\n' '///\\n')
 #cat in.txt | tr -s ',' 'df' > out.txt
 #COMMITS=$(cat out.txt)
 
@@ -68,7 +70,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'$NEW_COMMITS'"
+    "description": "'$COMMITS'"
 }'
 echo "Request: ${REQUEST}"
 
