@@ -1,8 +1,6 @@
 name: Ordinary push
 on:
   push:
-    tags-ignore:
-      - rc-*.*.*
 jobs:
   test-job:
     uses: ./.github/workflows/action.yml
