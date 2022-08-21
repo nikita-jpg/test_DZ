@@ -44,6 +44,12 @@ DESCRIPTION="${COMMITS}"
 TEXT_A="123"
 TEXT_B="${TEXT_A} \n 456"
 
+echo "$TEXT_B" > in.txt
+TEXT_B=$(cat in.txt)
+#echo "$COMMITS" > in.txt
+#cat in.txt | tr -s ',' 'df' > out.txt
+#COMMITS=$(cat out.txt)
+
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
 CREATE_TASK_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46"
