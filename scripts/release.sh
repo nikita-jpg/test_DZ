@@ -47,6 +47,8 @@ TEXT_B="${TEXT_A} \n 456"
 #echo "$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")" > in.txt
 COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")
 
+
+NEW_COMMITS=${COMMITS//$'\n'/\\n}
 #TEXT_B=$(cat in.txt)
 echo "$COMMITS" > in.txt
 COMMITS="123"
@@ -66,7 +68,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'$COMMITS'"
+    "description": "'$NEW_COMMITS'"
 }'
 echo "Request: ${REQUEST}"
 
