@@ -41,7 +41,7 @@ SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
 #DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:\n '${COMMITS}'"
 DESCRIPTION="${COMMITS}"
 
-
+TEXT="1\"2\"2"
 
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
@@ -55,7 +55,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": '""${SUMMARY}""'
+    "description": "'${TEXT}'"
 }'
 echo "Request: ${REQUEST}"
 
