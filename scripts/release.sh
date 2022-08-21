@@ -67,7 +67,7 @@ RESPONSE=$(
   --header "${HEADER_OAUTH}" \
   --header "${HEADER_ORG_ID}" \
   --header "${HEADER_CONTENT_TYPE}" \
-  --data "${REQUEST}"
+  --data "$REQUEST"
 )
 echo "Response: ${RESPONSE}."
 
