@@ -42,14 +42,14 @@ SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
 DESCRIPTION="${COMMITS}"
 
 TEXT_A="123"
-TEXT_B="${TEXT_A} , 456"
+TEXT_B="${TEXT_A} \n 456"
 
-echo "$TEXT_B" > in.txt
-cat in.txt | tr -s ',' 'df' > out.txt
-TEXT_B=$(cat out.txt)
+echo "$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")" > in.txt
+#cat in.txt | tr -s ',' '\n' > out.txt
+#TEXT_B=$(cat in.txt)
 #echo "$COMMITS" > in.txt
 #cat in.txt | tr -s ',' 'df' > out.txt
-#COMMITS=$(cat out.txt)
+COMMITS=$(cat in.txt)
 
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
@@ -63,7 +63,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'$TEXT_B'"
+    "description": "'$COMMITS'"
 }'
 echo "Request: ${REQUEST}"
 
