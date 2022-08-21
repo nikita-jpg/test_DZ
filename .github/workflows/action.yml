@@ -31,8 +31,8 @@ jobs:
     - name: 'test react'
       run: npm run test
 
-    - name: 'test passed'
-      run: echo '===test passed==='
+    - name: 'all test passed'
+      run: echo '===all test passed==='
 
     - name: 'test passed'
       id: test-react
