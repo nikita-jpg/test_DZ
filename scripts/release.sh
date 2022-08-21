@@ -14,16 +14,12 @@ if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" -
 	COMMITS="$(git log --pretty=format:"%H %an %s" "v_0.0.70"..."${RELEASE_VERSION}")"
 else
   	echo "i am in else"
-    	COMMITS=$(git log --pretty=format:"%H %an %s" "${RELEASE_VERSION}")
+    	COMMITS=$(git log --pretty=format:"%H %an %s%n" "${RELEASE_VERSION}")
 fi
 
-NEW_COMMITS=""
 echo ${COMMITS} > in.txt
-echo ${COMMITS} | tr -s '\r' '' > ${NEW_COMMITS}
-
-echo ${NEW_COMMITS}
-
-COMMITS=${NEW_COMMITS}
+#${COMMITS} | tr -s '\r\n' '\n' > out.txt
+COMMITS=$(cat in.txt)
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" v_0.0.52...${RELEASE_VERSION})
 echo "RELEASE_VERSION: ${RELEASE_VERSION}"
