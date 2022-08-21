@@ -1,8 +1,8 @@
 name: Release action
 on:
   push:
-#    tags:
-#      - 'rc-*.*.*'
+    tags:
+      - rc-*.*.*
 
 jobs:
 #  test-job:
@@ -10,8 +10,8 @@ jobs:
 
   make-release-ticket-yandex:
     runs-on: ubuntu-latest
-#    needs: test-job
-#    if: needs.test-job.outputs.is-test-passed == 'true'
+    needs: test-job
+    if: needs.test-job.outputs.is-test-passed == 'true' && github.ref_type == 'tag'
 
     steps:
       - uses: actions/checkout@v2

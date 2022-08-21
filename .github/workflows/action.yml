@@ -5,7 +5,9 @@ on:
       is-test-passed:
         description: "The status of last test"
         value: ${{ jobs.test-job.outputs.is-test-passed }}
-#  push:
+  push:
+    tags-ignore:
+      - rc-*.*.*
 jobs:
   test-job:
     runs-on: ubuntu-latest
