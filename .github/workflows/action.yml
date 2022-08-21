@@ -13,20 +13,22 @@ jobs:
       is-test-passed: ${{ steps.test-react.outputs.is-test-passed }}
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      name: 'setup node'
-      with:
-        node-version: '16.16.0'
 
-    - name: 'install'
-      run: npm i
-    - name: 'test lint'
-      run: npm run lint
-
-    - name: 'test ts'
-      run: npm run ts
-    - name: 'test react'
-      run: npm run test
+#    - uses: actions/setup-node@v1
+#      name: 'setup node'
+#      with:
+#        node-version: '16.16.0'
+#
+#    - name: 'install'
+#      run: npm i
+#    - name: 'test lint'
+#      run: npm run lint
+#
+#    - name: 'test ts'
+#      run: npm run ts
+#
+#    - name: 'test react'
+#      run: npm run test
 
     - name: 'test passed'
       id: test-react
