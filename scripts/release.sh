@@ -19,7 +19,7 @@ fi
 
 #NEW_COMMITS=${COMMITS//n/\\\\\\\\/n}
 
-echo "a\/nb"
+echo "a/nb"
 
 echo ${COMMITS} > in.txt
 #cat in.txt | tr -s 'sosk' ' ' > out.txt
