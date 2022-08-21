@@ -42,10 +42,11 @@ SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
 DESCRIPTION="${COMMITS}"
 
 TEXT_A="123"
-TEXT_B="${TEXT_A} \n 456"
+TEXT_B="${TEXT_A} , 456"
 
 echo "$TEXT_B" > in.txt
-TEXT_B=$(cat in.txt)
+cat in.txt | tr -s ',' 'df' > out.txt
+TEXT_B=$(cat out.txt)
 #echo "$COMMITS" > in.txt
 #cat in.txt | tr -s ',' 'df' > out.txt
 #COMMITS=$(cat out.txt)
