@@ -55,7 +55,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'$(git log --pretty=format:"%H %an %s" "${RELEASE_VERSION}")'"
+    "description": "'$(git log "${RELEASE_VERSION}")'"
 }'
 echo "Request: ${REQUEST}"
 
