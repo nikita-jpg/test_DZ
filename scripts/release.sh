@@ -11,15 +11,15 @@ COMMITS="Bad request"
 if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")" --quiet; then
 	echo "i am in if"
 	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")
-	COMMITS="$(git log --pretty=format:"%H %an %s \n" "v_0.0.70"..."${RELEASE_VERSION}")"
+	COMMITS="$(git log --pretty=format:"%H %an %s \\n" "v_0.0.70"..."${RELEASE_VERSION}")"
 else
   	echo "i am in else"
     COMMITS=$(git log --pretty=format:"%H %an %s" "${RELEASE_VERSION}")
 fi
 
-echo ${COMMITS} > in.txt
-cat in.txt | tr -s '\r\n' '"\\n"' > out.txt
-COMMITS=$(cat out.txt)
+#echo ${COMMITS} > in.txt
+#cat in.txt | tr -s '\r\n' '"\\n"' > out.txt
+#COMMITS=$(cat out.txt)
 
 echo ${COMMITS}
 echo "${COMMITS}"
