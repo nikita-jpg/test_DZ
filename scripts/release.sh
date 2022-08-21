@@ -19,7 +19,10 @@ fi
 
 NEW_COMMITS=""
 echo ${COMMITS} > in.txt
-${COMMITS} | tr -s '\r' '' > ${NEW_COMMITS}
+echo ${COMMITS} | tr -s '\r' '' > ${NEW_COMMITS}
+
+echo ${NEW_COMMITS}
+
 COMMITS=${NEW_COMMITS}
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" v_0.0.52...${RELEASE_VERSION})
