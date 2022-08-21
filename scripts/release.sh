@@ -18,7 +18,7 @@ else
 fi
 
 echo ${COMMITS} > in.txt
-cat in.txt | tr -s '\r\n' ' ' > out.txt
+cat in.txt | tr -s '\r\n' '\\n' > out.txt
 COMMITS=$(cat out.txt)
 
 echo ${COMMITS}
