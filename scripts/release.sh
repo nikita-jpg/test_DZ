@@ -57,12 +57,14 @@ REQUEST='{
 }'
 echo "Request: ${REQUEST}"
 
+echo ${REQUEST}  | tr "," "\\n" | NEW_REQUEST
+
 RESPONSE=$(
   curl -so dev/null -w '%{http_code}' -X PATCH ${CREATE_TASK_URL} \
   --header "${HEADER_OAUTH}" \
   --header "${HEADER_ORG_ID}" \
   --header "${HEADER_CONTENT_TYPE}" \
-  --data "${REQUEST}" | tr "," "\\n"
+  --data "${NEW_REQUEST}"
 )
 echo "Response: ${RESPONSE}."
 
