@@ -21,9 +21,9 @@ fi
 
 #echo "a\\\nb"
 #
-#echo ${COMMITS} > in.txt
+echo ${COMMITS} > in.txt
 ##cat in.txt | tr -s 'sosk' ' ' > out.txt
-#COMMITS=$(cat in.txt)
+COMMITS=$(cat in.txt)
 #
 #echo ${COMMITS}
 #echo "${COMMITS}"
