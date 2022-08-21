@@ -48,7 +48,7 @@ TEXT_B="${TEXT_A} \n 456"
 COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")
 
 
-NEW_COMMITS=${COMMITS//$'\n'/\\n}
+#NEW_COMMITS=${COMMITS//$'\n'/\\n}
 #TEXT_B=$(cat in.txt)
 echo "$COMMITS" > in.txt
 perl -pi -e 's/\n/\\n/g' in.txt
