@@ -41,7 +41,8 @@ SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
 #DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:\n '${COMMITS}'"
 DESCRIPTION="${COMMITS}"
 
-TEXT="12\\\n2"
+TEXT_A="123"
+TEXT_B="${TEXT_A} \n 456"
 
 #echo "\nChangelog:\n${CHANGELOG}\n"
 
@@ -55,7 +56,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": "'$(git log --pretty=oneline "${RELEASE_VERSION}")'"
+    "description": "'$TEXT_B'"
 }'
 echo "Request: ${REQUEST}"
 
