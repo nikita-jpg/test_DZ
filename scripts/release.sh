@@ -33,7 +33,7 @@ echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 #COMMITS="Ответственный за релиз nikitКоммиты, попавшие в релиз: c8d704933d42effdd83ff02726fc6e50d676cda7 nikit test without perenos stroki75f818e3024a3804b19e9664f146cb579dd789dd nikit test without perenos strokif6fe6cdda5824df15cae050c44194a13d39beaa4 nikit test without perenos stroki78bc463bb76869164c3fcaa2aeb813e0261adb44 nikit test without perenos strokidc32bd9b5e73f2dab6da86d97988f0b3ee840cf6 nikit test without perenos stroki44f959bb96a334406ccf8511127093c2731cab6e nikit test fetch-depthc60f58efe1ee7e7f42b3d41579738e322b8f56b2 nikit test fetch-depth01817e47f014db094c47543bb6bddd3e634d9044 nikit test fetch-depth"
 #SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
 SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
-DESCRIPTION="**Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:\n '${COMMITS}'"
+DESCRIPTION="**Ответственный за релиз ${AUTHOR}**\nКоммиты, попавшие в релиз:\n '${COMMITS}'"
 #DESCRIPTION="${COMMITS}"
 
 #TEXT_A="123"
@@ -69,7 +69,7 @@ echo "Request: ${REQUEST}"
 
 CREATE_COMMENT_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46/comments"
 COMMENT_REQUEST_BODY='{
-  "text":"Собрали образ c тегом'${RELEASE_VERSION}'"
+  "text":"Собрали образ c тегом '${RELEASE_VERSION}'"
 }'
 
 ADD_COMMENT_RESPONSE=$(
