@@ -53,6 +53,7 @@ HEADER_OAUTH="Authorization: OAuth ${ACCESS_TOKEN}"
 HEADER_ORG_ID="X-Org-ID: ${ORG_ID}"
 HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
+
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
     "description": "'$(git log "${RELEASE_VERSION}")'"
