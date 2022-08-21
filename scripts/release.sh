@@ -55,7 +55,7 @@ HEADER_CONTENT_TYPE="Content-Type: application/json"
 #  "description": "'"${CHANGELOG}"'"
 REQUEST='{
     "summary": "'"${SUMMARY}"'",
-    "description": '${DESCRIPTION}'
+    "description": '$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")'
 }'
 echo "Request: ${REQUEST}"
 
@@ -65,7 +65,7 @@ RESPONSE=$(
   --header "${HEADER_OAUTH}" \
   --header "${HEADER_ORG_ID}" \
   --header "${HEADER_CONTENT_TYPE}" \
-  --data "$REQUEST"
+  --data "$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")"
 )
 echo "Response: ${RESPONSE}."
 
