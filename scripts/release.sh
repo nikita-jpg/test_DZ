@@ -17,17 +17,11 @@ else
     COMMITS=$(git log --pretty=format:"%H %an %s"\n "${RELEASE_VERSION}")
 fi
 
-#NEW_COMMITS=${COMMITS//n/\\\\\\\\/n}
-
-#echo "a\\\nb"
-#
 echo "$COMMITS" > in.txt
 COMMITS=$(cat in.txt)
-echo "$COMMITS" > in.txt
-cat in.txt | tr -s ',' 'df' > out.txt
-##tr  ',' '\n' < in.txt > out.txt
-###cat in.txt | tr -s 'sosk' ' ' > out.txt
-COMMITS=$(cat out.txt)
+#echo "$COMMITS" > in.txt
+#cat in.txt | tr -s ',' 'df' > out.txt
+#COMMITS=$(cat out.txt)
 
 echo "${COMMITS}"
 
