@@ -65,7 +65,7 @@ RESPONSE=$(
   --header "${HEADER_OAUTH}" \
   --header "${HEADER_ORG_ID}" \
   --header "${HEADER_CONTENT_TYPE}" \
-  --data "$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}")"
+  --data "$REQUEST"
 )
 echo "Response: ${RESPONSE}."
 
