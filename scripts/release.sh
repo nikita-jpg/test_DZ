@@ -49,7 +49,8 @@ COMMITS=$(git log --pretty=format:"%H %an %s", "v_0.0.70"..."${RELEASE_VERSION}"
 
 #TEXT_B=$(cat in.txt)
 echo "$COMMITS" > in.txt
-cat in.txt | tr -s '\n' ' ' > COMMITS
+COMMITS="123"
+COMMITS=$(cat in.txt | tr -s '\n' ' ')
 #cat in.txt | tr -s ',' 'df' > out.txt
 #COMMITS=$(cat out.txt)
 
