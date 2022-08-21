@@ -11,7 +11,7 @@ COMMITS="Bad request"
 if git show-ref --tags "$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")" --quiet; then
 	echo "i am in if"
 	TAGS_BEFORE_LAST=$(git describe --tags --abbrev=0 "${RELEASE_VERSION}^" --match="v_*")
-	COMMITS="$(git log --pretty=format:"%H %an %s"/\\n "v_0.0.70"..."${RELEASE_VERSION}")"
+	COMMITS="$(git log --pretty=format:"%H %an %s"sosk "v_0.0.70"..."${RELEASE_VERSION}")"
 else
   	echo "i am in else"
     COMMITS=$(git log --pretty=format:"%H %an %s"\\n "${RELEASE_VERSION}")
@@ -19,8 +19,10 @@ fi
 
 #NEW_COMMITS=${COMMITS//n/\\\\\\\\/n}
 
+echo "a\\/nb"
+
 echo ${COMMITS} > in.txt
-#cat in.txt | tr -s '\r' ' ' > out.txt
+#cat in.txt | tr -s 'sosk' ' ' > out.txt
 COMMITS=$(cat in.txt)
 
 echo ${COMMITS}
