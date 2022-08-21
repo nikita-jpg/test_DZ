@@ -1,8 +1,6 @@
 name: Release action
 on:
   push:
-    tags:
-      - rc-*.*.*
 
 jobs:
   test-job:
