@@ -17,8 +17,8 @@ else
     COMMITS=$(git log --pretty=format:"%H %an %s"\n "${RELEASE_VERSION}")
 fi
 
-echo "$COMMITS" > in.txt
-COMMITS=$(cat in.txt)
+#echo "$COMMITS" > in.txt
+#COMMITS=$(cat in.txt)
 #echo "$COMMITS" > in.txt
 #cat in.txt | tr -s ',' 'df' > out.txt
 #COMMITS=$(cat out.txt)
@@ -39,7 +39,7 @@ echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 #SUMMARY="Релиз  №${RELEASE_VERSION#*_} от ${DATE}"
 SUMMARY="Relis  №${RELEASE_VERSION#*_} ot ${DATE}"
 #DESCRIPTION="Ответственный за релиз ${AUTHOR}\nКоммиты, попавшие в релиз:\n '${COMMITS}'"
-DESCRIPTION="'${COMMITS}'"
+DESCRIPTION="${COMMITS}"
 
 
 
