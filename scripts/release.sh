@@ -17,9 +17,10 @@ else
     	COMMITS=$(git log --pretty=format:"%H %an %s" "${RELEASE_VERSION}")
 fi
 
+NEW_COMMITS=""
 echo ${COMMITS} > in.txt
-#cat in.txt | tr -s '\r\n' '\n' > out.txt
-COMMITS=$(cat in.txt)
+${COMMITS} | tr -s '\r' '' > NEW_COMMITS
+COMMITS=NEW_COMMITS
 
 #COMMITS=$(git log --pretty=format:"%H %an %s%n" v_0.0.52...${RELEASE_VERSION})
 echo "RELEASE_VERSION: ${RELEASE_VERSION}"
