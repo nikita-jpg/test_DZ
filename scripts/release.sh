@@ -24,7 +24,7 @@ fi
 echo "$COMMITS" > in.txt
 COMMITS=$(cat in.txt)
 echo "$COMMITS" > in.txt
-cat in.txt | tr -s ',' '\n' | out.txt
+cat in.txt | tr -s ',' 'df' | out.txt
 ##tr  ',' '\n' < in.txt > out.txt
 ###cat in.txt | tr -s 'sosk' ' ' > out.txt
 COMMITS=$(cat out.txt)
