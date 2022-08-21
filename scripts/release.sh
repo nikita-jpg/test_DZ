@@ -36,7 +36,6 @@ REQUEST='{
     "summary": "'"${SUMMARY}"'",
     "description": "'$DESCRIPTION'"
 }'
-echo "Request: ${REQUEST}"
 
 CREATE_COMMENT_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46/comments"
 COMMENT_REQUEST_BODY='{
