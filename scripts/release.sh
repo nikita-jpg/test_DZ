@@ -26,7 +26,6 @@ echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 SUMMARY="Релиз  №${RELEASE_VERSION#*-} от ${DATE}"
 DESCRIPTION="**Ответственный за релиз ${AUTHOR}**\n\nКоммиты, попавшие в релиз:\n ${COMMITS}"
 
-
 CREATE_TASK_URL="https://api.tracker.yandex.net/v2/issues/INFRA-46"
 
 HEADER_OAUTH="Authorization: OAuth ${ACCESS_TOKEN}"
