@@ -58,6 +58,7 @@ RESPONSE=$(
   --header "${HEADER_CONTENT_TYPE}" \
   --data "$REQUEST"
 )
+
 echo "Response: ${RESPONSE}."
 
 if [ ${RESPONSE} = 200 ]; then
