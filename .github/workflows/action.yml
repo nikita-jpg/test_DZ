@@ -34,3 +34,4 @@ jobs:
     - name: 'all test passed'
       id: test-react
       run: echo '<<<all test passed>>>' && echo "::set-output name=is-test-passed::true"
+
