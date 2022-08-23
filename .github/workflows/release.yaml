@@ -22,6 +22,9 @@ jobs:
       - name: Build docker
         run: docker build . --file Dockerfile --tag $RELEASE_VERSION
 
+      - name: Image built
+        run: echo "<<<Image built>>>" && echo "<<<Listen on port 3000>>>"
+
       - name: Make release ticket yandex
         run: sh ./scripts/release.sh
         env:

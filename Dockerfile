@@ -1,6 +1,15 @@
-FROM node:16.16-bullseye as builder
-WORKDIR /app
-COPY package.json /app/package.json
-RUN npm install --only=prod
-COPY . /app
+FROM node:16-alpine
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+RUN npm install --production
+
+COPY . /usr/src/app
+
 RUN npm run build
+
+RUN npm install -g serve
+
+CMD ["serve", "-s", "build", "-l", "3000"]
