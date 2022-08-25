@@ -1,55 +1,43 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
-const path = require("path");
+const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 
 const DIST_PATH = path.resolve(__dirname, "docs");
 
-/**
- * @type {import("webpack").Configuration}
- */
-const config = {
+module.exports = {
   mode: "production",
-  devtool: "source-map",
-  devServer: {
-    static: {
-      directory: DIST_PATH,
-    },
-    port: 3000,
-  },
-  entry: {
-    script: path.resolve(__dirname, "src", "scripts.js"),
-  },
+  entry: './index.js',
   output: {
-    path: DIST_PATH,
-    filename: "[name].[contenthash].js",
-    assetModuleFilename: "assets/[name][ext][query]",
-    clean: true,
+    path: path.resolve("", 'docs'),
+    filename: 'bundle.js',
+    clean: true
   },
   module: {
     rules: [
       {
-        test: /.css$/,
+        test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        type: "asset",
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
-      },
-    ],
+    ]
+  },
+  optimization: {
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html"),
+    new CopyPlugin({
+      patterns: [
+        { from: "./index.html", to: "" },
+        // { from: "./*.css", to: "" },
+        // { from: "./assets", to: "./assets" }
+      ],
     }),
     new MiniCssExtractPlugin(),
-    new HtmlCriticalPlugin({
+    new CssMinimizerPlugin({
+      test: /\.css$/i,
+    }),
+    new HtmlCriticalWebpackPlugin({
       base: DIST_PATH,
       src: "index.html",
       dest: "index.html",
@@ -62,12 +50,8 @@ const config = {
         blockJSRequests: false,
       },
     }),
+    new HtmlMinimizerPlugin({
+      test: /\.html$/i,
+    }),
   ],
-  optimization: {
-    chunkIds: "named",
-    minimize: true,
-    minimizer: [new CssMinimizerPlugin()],
-  },
 };
-
-module.exports = config;
