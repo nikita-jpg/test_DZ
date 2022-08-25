@@ -2,7 +2,7 @@
   "name": "test_dz",
   "version": "1.0.0",
   "description": "Оптимизировать страницу, выложить результат на Github-Pages и отправить его на проверку на [https://shri-performance.ru/](https://shri-performance.ru/), отправив адрес вашей страницы. Нужно набрать минимум **300 баллов**.",
-  "main": "src/index.js",
+  "main": "index.js",
   "dependencies": {
     "webpack": "^5.74.0"
   },

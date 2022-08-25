@@ -5,7 +5,7 @@ const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  entry: './src/index.js',
+  entry: './index.js',
   output: {
     path: path.resolve("", 'docs'),
     filename: 'bundle.js',
@@ -18,12 +18,6 @@ module.exports = {
     }]
   },
   optimization: {
-    // minimize: true,
-    // minimizer: [
-    //   new CssMinimizerPlugin({
-    //     test: /\.css$/i,
-    //   }),
-    // ],
   },
   plugins: [
     new CopyPlugin({

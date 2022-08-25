@@ -7,18 +7,19 @@
     <meta http-equiv="pragma" content="no-cache"/>
     <title>Яндекс.Дом</title>
     <link rel="preload" as="font" href="assets/lato.woff2" type="font/woff2" crossorigin="anonymous">
-<!--    <script src="vendors/react-with-dom.js"></script>-->
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+<!--    <link rel="stylesheet" type="text/css" href="indexJsToCSS.css">-->
 </head>
 <body>
-<!--<script src="bundle.js"></script>-->
+<script src="bundle.js"></script>
 
 <header class="header">
     <a href="/" class="header__logo" aria-label="Яндекс.Дом"></a>
-    <button class="header__menu" aria-expanded="false">
+    <label class="header__menu__label header__menu" for="testId">
         <span class="header__menu-text a11y-hidden">Открыть меню</span>
-    </button>
+    </label>
+    <input type="checkbox" id="testId" class="header__menu__input">
     <ul class="header__links">
         <li class="header__item">
             <a class="header__link header__link_current" href="/" aria-current="page">Сводка</a>
