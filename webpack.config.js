@@ -66,7 +66,7 @@ const config = {
   optimization: {
     chunkIds: "named",
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), new TerserPlugin({ parallel: true })],
+    minimizer: [new CssMinimizerPlugin()],
   },
 };
 
