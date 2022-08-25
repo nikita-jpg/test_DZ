@@ -1,52 +1,73 @@
-const path = require('path');
-const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
-const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
+const path = require("path");
 
+const DIST_PATH = path.resolve(__dirname, "docs");
 
-module.exports = {
+/**
+ * @type {import("webpack").Configuration}
+ */
+const config = {
   mode: "production",
-  entry: './index.js',
+  devtool: "source-map",
+  devServer: {
+    static: {
+      directory: DIST_PATH,
+    },
+    port: 3000,
+  },
+  entry: {
+    script: path.resolve(__dirname, "src", "scripts.js"),
+  },
   output: {
-    path: path.resolve("", 'docs'),
-    filename: 'bundle.js',
-    clean: true
+    path: DIST_PATH,
+    filename: "[name].[contenthash].js",
+    assetModuleFilename: "assets/[name][ext][query]",
+    clean: true,
   },
   module: {
-    rules: [{
-      test: /\.css/,
-      loader: 'import-glob-loader'
-    }]
-  },
-  optimization: {
+    rules: [
+      {
+        test: /.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        type: "asset",
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
+    ],
   },
   plugins: [
-    new CopyPlugin({
-    patterns: [
-      { from: "./index.html", to: "" },
-      { from: "./*.css", to: "" },
-      { from: "./assets", to: "./assets" }
-    ],
-  }),
-    // new CssMinimizerPlugin({
-    //     test: /\.css$/i,
-    //   }),
-    // new HtmlMinimizerPlugin({
-    //     test: /\.html$/i,
-    // }),
-    new HtmlCriticalWebpackPlugin({
-      base: path.resolve(__dirname, 'docs'),
-      src: 'index.html',
-      dest: 'index.html',
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src", "index.html"),
+    }),
+    new MiniCssExtractPlugin(),
+    new HtmlCriticalPlugin({
+      base: DIST_PATH,
+      src: "index.html",
+      dest: "index.html",
       inline: true,
       minify: true,
       extract: true,
-      width: 375,
-      height: 565,
+      width: 1200,
+      height: 800,
       penthouse: {
         blockJSRequests: false,
-      }
-    })
+      },
+    }),
   ],
+  optimization: {
+    chunkIds: "named",
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin({ parallel: true })],
+  },
 };
+
+module.exports = config;
