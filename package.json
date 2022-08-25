@@ -1,0 +1,32 @@
+{
+  "name": "test_dz",
+  "version": "1.0.0",
+  "description": "Оптимизировать страницу, выложить результат на Github-Pages и отправить его на проверку на [https://shri-performance.ru/](https://shri-performance.ru/), отправив адрес вашей страницы. Нужно набрать минимум **300 баллов**.",
+  "main": "src/index.js",
+  "dependencies": {
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "html-minimizer-webpack-plugin": "^4.1.0",
+    "import-glob-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge-and-include-globally": "^2.3.4"
+  },
+  "scripts": {
+    "build": "npx webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikita-jpg/test_DZ.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikita-jpg/test_DZ/issues"
+  },
+  "homepage": "https://github.com/nikita-jpg/test_DZ#readme"
+}
