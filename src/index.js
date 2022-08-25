@@ -1,5 +1,3 @@
-// import styles from "../fonts.css";
-
 (() => {
     function bind(nodes, event, handler) {
         Array.from(nodes).forEach(node => {
