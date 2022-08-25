@@ -29,6 +29,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "./index.html", to: "" },
+        { from: "./lato.woff2", to: "" },
         // { from: "./*.css", to: "" },
         // { from: "./assets", to: "./assets" }
       ],
