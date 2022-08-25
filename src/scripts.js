@@ -1,6 +1,5 @@
 require("./styles.css");
 require("./fonts.css");
-require("./vendors/bootstrap.css");
 (() => {
   function bind(nodes, event, handler) {
     Array.from(nodes).forEach((node) => {
