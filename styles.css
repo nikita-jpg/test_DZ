@@ -232,7 +232,7 @@ html, body {
     font-size: 0.8125rem;
     font-family: inherit;
     font-weight: bold;
-    background: no-repeat calc(100% - 1rem) 50% #FFD93E url(assets/arrow-down.svg);
+    background: no-repeat calc(100% - 1rem) 50% #FFD93E url(assets/arrow-down.webp);
     appearance: none;
 }
 
@@ -473,11 +473,11 @@ html, body {
 }
 
 .event__icon_light {
-    background-image: url(assets/icon_sun.svg);
+    background-image: url(assets/icon_sun.webp);
 }
 
 .event__icon_light2 {
-    background-image: url(assets/icon_sun_2.svg);
+    background-image: url(assets/icon_sun_2.webp);
 }
 
 .event__icon_schedule {

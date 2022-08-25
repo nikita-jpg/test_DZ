@@ -532,11 +532,11 @@ html, body {
 }
 
 .event__icon_light {
-    background-image: url(assets/icon_sun.svg);
+    background-image: url(assets/icon_sun.webp);
 }
 
 .event__icon_light2 {
-    background-image: url(assets/icon_sun_2.svg);
+    background-image: url(assets/icon_sun_2.webp);
 }
 
 .event__icon_schedule {
